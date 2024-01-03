@@ -1,0 +1,64 @@
+﻿@model List<WebCafe.Models.DonDatHang>
+@{
+    ViewBag.Title = "Trang Thống Kê Khách Hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title mb-4">Danh Sách Khách Hàng</h4>
+                <div class="table-responsive">
+                    <table class="table table-centered table-nowrap mb-0">
+                        <thead class="thead-light">
+                            <tr>
+
+                                <th>Số lượng khách hàng</th>
+                                <th>Số lượng đơn đặt hàng của mỗi khách hàng</th>
+                                <th>Tổng giá trị đơn đặt hàng của mỗi khách hàng</th>
+                                <th>Số lượng đơn đặt hàng đã thanh toán và chưa thanh toán của mỗi khách hàng</th>
+                                <th>Tình trạng</th>
+                                <th>Thanh toán</th>
+                                <th>Chi tiết</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.MaDDH</td>
+                                    <td>@item.KhachHang.TenKH</td>
+                                    <td>@item.NgayDat</td>
+                                    <td>@item.TinhTrangGiao</td>
+                                    <td>@item.DaThanhToan</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- end table-responsive -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+                    </div>
+<!-- container-fluid -->
+                </div>
+<!-- End Page-content -->
+@section ClientScript{
+    <!-- JAVASCRIPT -->
+    <script src="~/Assets/admin/libs/jquery/jquery.min.js"></script>
+    <script src="~/Assets/admin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Assets/admin/libs/metismenu/metis/Menu.min.js"></script>
+    <script src="~/Assets/admin/libs/simplebar/simplebar.min.js"></script>
+    <script src="~/Assets/admin/libs/node-waves/waves.min.js"></script>
+    <!-- apexcharts -->
+    <script src="~/Assets/admin/libs/apexcharts/apexcharts.min.js"></script>
+    <script src="~/Assets/admin/js/pages/dashboard.init.js"></script>
+    <!-- App js -->
+    <script src="~/Assets/admin/js/app.js"></script>
+}
+
+
